@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khaled Omar - Senior Software Engineer & Platform Architect. Specializing in high-performance e-commerce solutions and modern web architecture.">
+    <meta name="author" content="Khaled Omar">
+    <title>Khaled Omar | Senior Software Engineer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'></polyline><polyline points='8 6 2 12 8 18'></polyline><line x1='14' y1='4' x2='10' y2='20'></line></svg>">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #05060f;
+            --bg-accent: #0f1129;
+            --primary-violet: #8b5cf6;
+            --secondary-fuchsia: #d946ef;
+            --soft-text: #f1f5f9;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, var(--bg-accent) 0%, var(--bg-deep) 100%);
+            background-attachment: fixed;
+            color: var(--soft-text);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* UI Components */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary-violet);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary-violet), var(--secondary-fuchsia));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .category-tab:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            color: #fff;
+        }
+
+        .category-tab.active {
+            background: var(--primary-violet);
+            color: #fff;
+            border-color: var(--primary-violet);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Navigation & Floating UI */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .floating-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(15, 17, 41, 0.8);
+            padding: 14px;
+            border-radius: 50%;
+            border: 1px solid var(--primary-violet);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-violet);
+            transition: all 0.3s ease;
+            animation: float-pulse 4s infinite ease-in-out;
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.15) rotate(5deg);
+            background: var(--primary-violet);
+            color: #fff;
+            box-shadow: 0 0 25px var(--primary-violet);
+        }
+
+        @keyframes float-pulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Layout */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .screenshot-container {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #05060f;
+        }
+
+        .screenshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.8s ease;
+        }
+
+        .glass-card:hover .screenshot-container img { transform: scale(1.1); }
+
+        .cert-badge {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--primary-violet);
+            padding: 6px 18px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+        }
+        
+        .se-logo-container {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(217, 70, 239, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .se-logo-container:hover {
+            border-color: var(--secondary-fuchsia);
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .view-project-btn {
+            color: var(--primary-violet);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-project-btn:hover {
+            color: var(--secondary-fuchsia);
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Floating Actions -->
+    <div class="floating-container">
+        <a href="https://github.com/SunnysApartment" target="_blank" class="floating-icon" title="GitHub Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="https://wa.me/201007449476" target="_blank" class="floating-icon" title="Contact via WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative pt-28 pb-20 px-6 text-center">
+        <div data-aos="zoom-in" class="mb-10">
+            <div class="se-logo-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="url(#logo-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8b5cf6" />
+                            <stop offset="100%" stop-color="#d946ef" />
+                        </linearGradient>
+                    </defs>
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                    <line x1="14" y1="4" x2="10" y2="20"></line>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="cert-badge mb-8" data-aos="fade-down">
+                <span>✨</span> Senior Software Engineer | Platform Architect
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight text-white tracking-tighter" data-aos="fade-up">
+                Khaled <span class="text-gradient">Omar</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
+                Architecting high-performance digital commerce solutions. Specialized in scaling enterprise-grade storefronts and engineering seamless full-stack architectures for global markets.
+            </p>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
+            <button class="category-tab active" onclick="filterProjects('all', this)">All Projects</button>
+            <button class="category-tab" onclick="filterProjects('shopify', this)">Shopify</button>
+            <button class="category-tab" onclick="filterProjects('zid', this)">Zid Platforms</button>
+            <button class="category-tab" onclick="filterProjects('salla', this)">Salla Stores</button>
+            <button class="category-tab" onclick="filterProjects('wordpress', this)">WordPress / CMS</button>
+        </div>
+
+        <div id="projectsContainer" class="project-grid">
+            <!-- Dynamic Injection -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/60 border-t border-white/5 py-24 px-6 text-center">
+        <div class="mb-12 opacity-90 flex justify-center items-center gap-10">
+            <a href="https://github.com/SunnysApartment" target="_blank" class="text-slate-400 hover:text-white transition-all transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <div class="h-8 w-px bg-white/10"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#logo-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>
+        </div>
+        
+        <h3 class="text-4xl font-black text-white mb-4 tracking-tight">Khaled Omar</h3>
+        
+        <div class="flex flex-col items-center gap-6 mb-16">
+            <p class="text-slate-500 max-w-md mx-auto leading-relaxed">Pioneering digital boundaries through elegant code and performance-driven engineering.</p>
+            <div class="flex flex-wrap justify-center gap-12 text-sm tracking-widest text-violet-400 font-bold uppercase">
+                <a href="https://github.com/SunnysApartment" target="_blank" class="hover:text-fuchsia-400 transition-colors">GitHub</a>
+                <a href="https://wa.me/201007449476" target="_blank" class="hover:text-fuchsia-400 transition-colors">WhatsApp</a>
+                <span class="text-slate-700">Cairo, Egypt</span>
+            </div>
+        </div>
+        
+        <div class="text-[10px] text-slate-800 font-bold uppercase tracking-[0.3em]">© 2026 Khaled Omar — Licensed under MIT</div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const projects = [
+            { title: "Atiab International", url: "https://atiabintl.com/ar-eg/", cat: "zid" },
+            { title: "Zenith Store", url: "https://zenithstore.zid.store/", cat: "zid" },
+            { title: "Mkahel", url: "https://mkahel.sa/", cat: "zid" },
+            { title: "Everyday KSA", url: "https://everydayksa.com/", cat: "zid" },
+            { title: "Protak Metal", url: "https://protakmetaleg.com/", cat: "wordpress" },
+            { title: "Refd Services", url: "https://www.refdservices.com/", cat: "wordpress" },
+            { title: "Beyond Creativity", url: "https://beyondcreativity.sa/", cat: "wordpress" },
+            { title: "Warfah Association", url: "https://warfah.org/", cat: "wordpress" },
+            { title: "Sky Color", url: "https://skycolorksa.com/", cat: "wordpress" },
+            { title: "Velvaya Store", url: "https://velvayastor.com/", cat: "wordpress" },
+            { title: "Partners & Beyond", url: "https://partnersandbeyond.com/", cat: "wordpress" },
+            { title: "Ivory Uniform", url: "https://ivoryuniformsa.com/", cat: "salla" },
+            { title: "Tora SA", url: "https://tora-sa.com/", cat: "salla" },
+            { title: "Kohl Alward", url: "https://kohlalward.com/ar", cat: "salla" },
+            { title: "Captain Majid", url: "https://captainmajidc.com/ar", cat: "salla" },
+            { title: "Dooja Shop", url: "https://doojashop.com/", cat: "salla" },
+            { title: "Antika Store", url: "https://antika-store.com/", cat: "salla" },
+            { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify" }
+        ];
+
+        function renderProjects() {
+            const container = document.getElementById('projectsContainer');
+            if (!container) return;
+
+            container.innerHTML = projects.map((p, index) => `
+                <div class="project-item glass-card" data-category="${p.cat}" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
+                    <div class="screenshot-container">
+                        <img src="https://image.thum.io/get/width/600/crop/800/noanimate/${p.url}" 
+                             alt="${p.title}" 
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/05060f/8b5cf6?text=Preview+Unavailable';">
+                        <div class="absolute top-5 right-5">
+                            <span class="px-3 py-1 bg-black/80 backdrop-blur-lg text-violet-400 text-[10px] rounded-full border border-violet-500/20 uppercase font-black tracking-widest">${p.cat}</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-white mb-6 line-clamp-1">${p.title}</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Case Study</span>
+                            <a href="${p.url}" target="_blank" class="view-project-btn group">
+                                Explore Project 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProjects(category, btn) {
+            document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.project-item');
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'all' || itemCat === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        window.onload = () => {
+            renderProjects();
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+            }
+        };
+    </script>
+</body>
+</html>
