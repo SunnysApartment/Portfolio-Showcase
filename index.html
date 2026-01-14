@@ -50,7 +50,7 @@
 
         .glass-card:hover {
             border-color: var(--primary-violet);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.07);
             transform: translateY(-8px);
             box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.4);
         }
@@ -289,24 +289,33 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         const projects = [
+            // E-commerce & Platforms
             { title: "Atiab International", url: "https://atiabintl.com/ar-eg/", cat: "zid" },
             { title: "Zenith Store", url: "https://zenithstore.zid.store/", cat: "zid" },
             { title: "Mkahel", url: "https://mkahel.sa/", cat: "zid" },
             { title: "Everyday KSA", url: "https://everydayksa.com/", cat: "zid" },
-            { title: "Protak Metal", url: "https://protakmetaleg.com/", cat: "wordpress" },
-            { title: "Refd Services", url: "https://www.refdservices.com/", cat: "wordpress" },
-            { title: "Beyond Creativity", url: "https://beyondcreativity.sa/", cat: "wordpress" },
-            { title: "Warfah Association", url: "https://warfah.org/", cat: "wordpress" },
-            { title: "Sky Color", url: "https://skycolorksa.com/", cat: "wordpress" },
-            { title: "Velvaya Store", url: "https://velvayastor.com/", cat: "wordpress" },
-            { title: "Partners & Beyond", url: "https://partnersandbeyond.com/", cat: "wordpress" },
             { title: "Ivory Uniform", url: "https://ivoryuniformsa.com/", cat: "salla" },
             { title: "Tora SA", url: "https://tora-sa.com/", cat: "salla" },
             { title: "Kohl Alward", url: "https://kohlalward.com/ar", cat: "salla" },
             { title: "Captain Majid", url: "https://captainmajidc.com/ar", cat: "salla" },
             { title: "Dooja Shop", url: "https://doojashop.com/", cat: "salla" },
             { title: "Antika Store", url: "https://antika-store.com/", cat: "salla" },
-            { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify" }
+            { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify" },
+
+            // WordPress CMS
+            { title: "Abdulaziz Tubbal", url: "https://abdulaziztubbal.com/", cat: "wordpress" },
+            { title: "Rich Line", url: "https://richline.sa/", cat: "wordpress" },
+            { title: "Bayrak Al-Maadin", url: "https://bayrakalmaadin.com/", cat: "wordpress" },
+            { title: "Al-Fakhr Wash", url: "https://alfakhr-wash.com/", cat: "wordpress" },
+            { title: "Aman Portal", url: "https://portal.aman-sa.com/", cat: "wordpress" },
+            { title: "El-Huda Real Estate", url: "https://elhuda-realestate.com/", cat: "wordpress" },
+            { title: "Protak Metal", url: "https://protakmetaleg.com/", cat: "wordpress" },
+            { title: "Refd Services", url: "https://www.refdservices.com/", cat: "wordpress" },
+            { title: "Beyond Creativity", url: "https://beyondcreativity.sa/", cat: "wordpress" },
+            { title: "Warfah Association", url: "https://warfah.org/", cat: "wordpress" },
+            { title: "Sky Color", url: "https://skycolorksa.com/", cat: "wordpress" },
+            { title: "Velvaya Store", url: "https://velvayastor.com/", cat: "wordpress" },
+            { title: "Partners & Beyond", url: "https://partnersandbeyond.com/", cat: "wordpress" }
         ];
 
         function renderProjects() {
