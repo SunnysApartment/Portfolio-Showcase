@@ -40,12 +40,6 @@ A premium, high-performance portfolio showcasing enterprise-grade e-commerce sol
 ├── index.html
 │   └── Main HTML entry point containing the page structure and external references
 │
-├── style.css
-│   └── Global styling, design system, glassmorphism effects, and animations
-│
-├── script.js
-│   └── Project data, rendering logic, filtering system, and UI interactions
-│
 ├── README.md
 │   └── Project documentation
 │
