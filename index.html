@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="-5b3I7pmjpflGsDUMNkUtDbaLCZAMorAHMmIfBSUjks" />
-    <meta name="description" content="Khaled Omar - Senior Software Engineer & Platform Architect. Specializing in high-performance e-commerce solutions and modern web architecture.">
+    <meta name="description" content="Khaled Omar - Senior Software Engineer & DevOps. Specializing in high-performance e-commerce solutions and modern web architecture.">
     <meta name="author" content="Khaled Omar">
     <title>Khaled Omar | Senior Software Engineer</title>
     
@@ -14,7 +14,7 @@
     <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -24,6 +24,7 @@
             --secondary-fuchsia: #d946ef;
             --soft-text: #f1f5f9;
             --glass-border: rgba(255, 255, 255, 0.1);
+            --live-green: #22c55e;
         }
 
         html { scroll-behavior: smooth; }
@@ -38,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* UI Components */
         .glass-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(16px);
@@ -73,11 +73,6 @@
             font-size: 0.875rem;
         }
 
-        .category-tab:hover {
-            border-color: rgba(139, 92, 246, 0.5);
-            color: #fff;
-        }
-
         .category-tab.active {
             background: var(--primary-violet);
             color: #fff;
@@ -85,7 +80,6 @@
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
         }
 
-        /* Navigation & Floating UI */
         .floating-container {
             position: fixed;
             bottom: 30px;
@@ -124,7 +118,6 @@
             50% { transform: translateY(-12px); }
         }
 
-        /* Layout */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -149,6 +142,33 @@
 
         .glass-card:hover .screenshot-container img { transform: scale(1.1); }
 
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: var(--live-green);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            position: relative;
+        }
+
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--live-green);
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
         .cert-badge {
             background: rgba(139, 92, 246, 0.1);
             border: 1px solid rgba(139, 92, 246, 0.3);
@@ -165,24 +185,76 @@
             backdrop-filter: blur(4px);
         }
         
+        /* REDESIGNED LOGO ANIMATION ICON */
         .se-logo-container {
-            width: 110px;
+            width: auto;
+            min-width: 180px;
             height: 110px;
             margin: 0 auto;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(217, 70, 239, 0.1));
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            border-radius: 2.5rem;
-            display: flex;
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 2rem;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
+            padding: 0 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(139, 92, 246, 0.1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: se-float 6s infinite ease-in-out;
+            cursor: pointer;
+            position: relative;
+            gap: 12px;
+            backdrop-filter: blur(8px);
         }
 
         .se-logo-container:hover {
-            border-color: var(--secondary-fuchsia);
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
-            transform: rotate(5deg) scale(1.05);
+            border-color: var(--primary-violet);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .code-bracket {
+            font-family: 'Fira Code', monospace;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-violet);
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+            user-select: none;
+        }
+
+        .code-bracket.right {
+            color: var(--secondary-fuchsia);
+            text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+        }
+
+        .typing-text-wrapper {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            min-width: 80px;
+            text-align: center;
+            letter-spacing: -0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typing-cursor {
+            width: 3px;
+            height: 1.6rem;
+            background-color: var(--secondary-fuchsia);
+            margin-left: 4px;
+            box-shadow: 0 0 8px var(--secondary-fuchsia);
+            animation: blink 0.8s step-end infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        @keyframes se-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .view-project-btn {
@@ -202,7 +274,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Floating Actions -->
     <div class="floating-container">
         <a href="https://github.com/SunnysApartment" target="_blank" class="floating-icon" title="GitHub Profile">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -212,21 +283,18 @@
         </a>
     </div>
 
-    <!-- Hero Section -->
     <header class="relative pt-28 pb-20 px-6 text-center">
         <div data-aos="zoom-in" class="mb-10">
+            <!-- REDESIGNED LOGO CONSOLE -->
             <div class="se-logo-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="url(#logo-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <defs>
-                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#8b5cf6" />
-                            <stop offset="100%" stop-color="#d946ef" />
-                        </linearGradient>
-                    </defs>
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                    <line x1="14" y1="4" x2="10" y2="20"></line>
-                </svg>
+                <span class="code-bracket">&lt;</span>
+                
+                <div class="typing-text-wrapper">
+                    <span id="typing-content"></span>
+                    <span class="typing-cursor"></span>
+                </div>
+
+                <span class="code-bracket right">/&gt;</span>
             </div>
         </div>
         
@@ -243,7 +311,6 @@
         </div>
     </header>
 
-    <!-- Projects Section -->
     <main class="max-w-7xl mx-auto px-6 pb-32">
         <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
             <button class="category-tab active" onclick="filterProjects('all', this)">All Projects</button>
@@ -258,14 +325,19 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-black/60 border-t border-white/5 py-24 px-6 text-center">
         <div class="mb-12 opacity-90 flex justify-center items-center gap-10">
             <a href="https://github.com/SunnysApartment" target="_blank" class="text-slate-400 hover:text-white transition-all transform hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37(3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </a>
             <div class="h-8 w-px bg-white/10"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#logo-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                    <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#8b5cf6" />
+                        <stop offset="100%" stop-color="#d946ef" />
+                    </linearGradient>
+                </defs>
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                 <path d="M2 17l10 5 10-5"></path>
                 <path d="M2 12l10 5 10-5"></path>
@@ -302,14 +374,18 @@
             { title: "Dooja Shop", url: "https://doojashop.com/", cat: "salla" },
             { title: "Antika Store", url: "https://antika-store.com/", cat: "salla" },
             { title: "Fnon Wten", url: "http://fnonwten.com/", cat: "salla" },
+            { title: "Glow Me", url: "https://gloowme.com/ar", cat: "salla" },
+            { title: "Tulasa", url: "https://6ulasa.com/", cat: "salla" },
             { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify" },
 
             // WordPress CMS
             { title: "Abdulaziz Tubbal", url: "https://abdulaziztubbal.com/", cat: "wordpress" },
+            { title: "Al-Bansar PS", url: "https://albansar-ps.com/", cat: "wordpress" },
+            { title: "Sina Plus", url: "https://sina-plus.com/landpage/", cat: "wordpress" },
+            { title: "Al-Harameen", url: "https://al-harameen.ae/", cat: "wordpress" },
             { title: "Rich Line", url: "https://richline.sa/", cat: "wordpress" },
             { title: "Rich Liine", url: "https://richliine.com/", cat: "wordpress" },
             { title: "Madhon Ruh", url: "https://madhonruh.com/", cat: "wordpress" },
-            { title: "Al-Bansar PS", url: "https://albansar-ps.com/", cat: "wordpress" },
             { title: "Bayrak Al-Maadin", url: "https://bayrakalmaadin.com/", cat: "wordpress" },
             { title: "Al-Fakhr Wash", url: "https://alfakhr-wash.com/", cat: "wordpress" },
             { title: "Aman Portal", url: "https://portal.aman-sa.com/", cat: "wordpress" },
@@ -327,10 +403,13 @@
             const container = document.getElementById('projectsContainer');
             if (!container) return;
 
-            container.innerHTML = projects.map((p, index) => `
+            container.innerHTML = projects.map((p, index) => {
+                const imgSrc = `https://image.thum.io/get/width/600/crop/650/noanimate/${p.url}`;
+                
+                return `
                 <div class="project-item glass-card" data-category="${p.cat}" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
                     <div class="screenshot-container">
-                        <img src="https://image.thum.io/get/width/600/crop/800/noanimate/${p.url}" 
+                        <img src="${imgSrc}" 
                              alt="${p.title}" 
                              loading="lazy"
                              onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/05060f/8b5cf6?text=Preview+Unavailable';">
@@ -341,7 +420,9 @@
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-white mb-6 line-clamp-1">${p.title}</h4>
                         <div class="flex justify-between items-center">
-                            <span class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Live Preview</span>
+                            <div class="flex items-center text-slate-500 text-[10px] font-black uppercase tracking-widest">
+                                Site Status: <span class="ml-2 text-white flex items-center"> <span class="status-dot"></span> LIVE</span>
+                            </div>
                             <a href="${p.url}" target="_blank" class="view-project-btn group">
                                 Explore Project 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -349,7 +430,8 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function filterProjects(category, btn) {
@@ -375,11 +457,45 @@
             });
         }
 
+        // Typing Effect Logic
+        const words = ["CODE", "DEV", "BUILD", "API", "WEB", "APPS", "SEO", "UI"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 100;
+        const pauseTime = 2000;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            const typingContent = document.getElementById('typing-content');
+            
+            if (isDeleting) {
+                typingContent.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingContent.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, pauseTime);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+            }
+        }
+
         window.onload = () => {
             renderProjects();
             if (typeof AOS !== 'undefined') {
                 AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
             }
+            type(); // Start typing animation
         };
     </script>
 </body>
