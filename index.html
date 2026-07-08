@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="-5b3I7pmjpflGsDUMNkUtDbaLCZAMorAHMmIfBSUjks" />
-    <meta name="description" content="Khaled Omar - Senior Software Engineer & DevOps. Specializing in high-performance e-commerce solutions and modern web architecture.">
+    <meta name="description"
+        content="Khaled Omar - Senior Software Engineer & Technical Lead. Specializing in enterprise full-stack architectures, high-performance e-commerce solutions, and DevOps.">
     <meta name="author" content="Khaled Omar">
-    <title>Khaled Omar | Senior Software Engineer</title>
-    
+    <title>Khaled Omar | Senior Software Engineer & Technical Lead</title>
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'></polyline><polyline points='8 6 2 12 8 18'></polyline><line x1='14' y1='4' x2='10' y2='20'></line></svg>">
-    
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'></polyline><polyline points='8 6 2 12 8 18'></polyline><line x1='14' y1='4' x2='10' y2='20'></line></svg>">
+
     <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
-            --bg-deep: #05060f;
-            --bg-accent: #0f1129;
-            --primary-violet: #8b5cf6;
+            --bg-deep: #030014;
+            --bg-accent: #0a0526;
+            --primary-violet: #7c3aed;
             --secondary-fuchsia: #d946ef;
-            --soft-text: #f1f5f9;
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --live-green: #22c55e;
+            --soft-text: #f8fafc;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --live-green: #10b981;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at center, var(--bg-accent) 0%, var(--bg-deep) 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at 50% 0%, var(--bg-accent) 0%, var(--bg-deep) 70%);
             background-attachment: fixed;
             color: var(--soft-text);
             margin: 0;
@@ -40,44 +47,43 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
+            border-radius: 1.25rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-card:hover {
-            border-color: var(--primary-violet);
-            background: rgba(255, 255, 255, 0.07);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.4);
+            border-color: rgba(124, 58, 237, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px -15px rgba(124, 58, 237, 0.25);
         }
 
         .text-gradient {
-            background: linear-gradient(to right, var(--primary-violet), var(--secondary-fuchsia));
+            background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .category-tab {
-            padding: 0.75rem 1.5rem;
+            padding: 0.625rem 1.25rem;
             border-radius: 9999px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             color: #94a3b8;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.875rem;
         }
 
         .category-tab.active {
-            background: var(--primary-violet);
+            background: linear-gradient(135deg, var(--primary-violet), #c084fc);
             color: #fff;
-            border-color: var(--primary-violet);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+            border-color: transparent;
+            box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
         }
 
         .floating-container {
@@ -86,69 +92,65 @@
             right: 30px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
+            gap: 12px;
+            z-index: 50;
         }
 
         .floating-icon {
-            width: 54px;
-            height: 54px;
-            background: rgba(15, 17, 41, 0.8);
-            padding: 14px;
+            width: 50px;
+            height: 50px;
+            background: rgba(10, 5, 38, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            border: 1px solid var(--primary-violet);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-violet);
+            color: #94a3b8;
             transition: all 0.3s ease;
-            animation: float-pulse 4s infinite ease-in-out;
         }
 
         .floating-icon:hover {
-            transform: scale(1.15) rotate(5deg);
-            background: var(--primary-violet);
+            transform: translateY(-4px);
             color: #fff;
-            box-shadow: 0 0 25px var(--primary-violet);
-        }
-
-        @keyframes float-pulse {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            border-color: var(--primary-violet);
+            box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.3);
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 2rem;
         }
 
-        .screenshot-container {
-            height: 220px;
-            width: 100%;
-            overflow: hidden;
+        .card-glow-bg {
             position: relative;
-            background: #05060f;
         }
 
-        .screenshot-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            transition: transform 0.8s ease;
+        .card-glow-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1.25rem;
+            background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255, 255, 255, 0.06), transparent 40%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
-        .glass-card:hover .screenshot-container img { transform: scale(1.1); }
+        .card-glow-bg:hover::before {
+            opacity: 1;
+        }
 
         .status-dot {
-            height: 8px;
-            width: 8px;
+            height: 6px;
+            width: 6px;
             background-color: var(--live-green);
             border-radius: 50%;
             display: inline-block;
-            margin-right: 6px;
             position: relative;
         }
 
@@ -165,239 +167,462 @@
         }
 
         @keyframes pulse-green {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(3); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
         }
 
-        .cert-badge {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            color: var(--primary-violet);
-            padding: 6px 18px;
-            border-radius: 99px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            backdrop-filter: blur(4px);
-        }
-        
-        /* REDESIGNED LOGO ANIMATION ICON */
-        .se-logo-container {
-            width: auto;
-            min-width: 180px;
-            height: 110px;
-            margin: 0 auto;
-            background: rgba(139, 92, 246, 0.05);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 1.5rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(139, 92, 246, 0.1);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            animation: se-float 6s infinite ease-in-out;
-            cursor: pointer;
-            position: relative;
-            gap: 12px;
-            backdrop-filter: blur(8px);
+        .cv-modal-content::-webkit-scrollbar {
+            width: 8px;
         }
 
-        .se-logo-container:hover {
-            border-color: var(--primary-violet);
-            background: rgba(139, 92, 246, 0.1);
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.2);
+        .cv-modal-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .code-bracket {
-            font-family: 'Fira Code', monospace;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--primary-violet);
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-            user-select: none;
+        .cv-modal-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
         }
 
-        .code-bracket.right {
-            color: var(--secondary-fuchsia);
-            text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
-        }
-
-        .typing-text-wrapper {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #fff;
-            min-width: 80px;
-            text-align: center;
-            letter-spacing: -0.05em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .typing-cursor {
-            width: 3px;
-            height: 1.6rem;
-            background-color: var(--secondary-fuchsia);
-            margin-left: 4px;
-            box-shadow: 0 0 8px var(--secondary-fuchsia);
-            animation: blink 0.8s step-end infinite;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        @keyframes se-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .view-project-btn {
-            color: var(--primary-violet);
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .view-project-btn:hover {
-            color: var(--secondary-fuchsia);
-            transform: translateX(4px);
+        .cv-modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(124, 58, 237, 0.4);
         }
     </style>
 </head>
+
 <body class="antialiased">
 
+    <!-- Floating Actions -->
     <div class="floating-container">
         <a href="https://github.com/SunnysApartment" target="_blank" class="floating-icon" title="GitHub Profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+            </svg>
         </a>
         <a href="https://wa.me/201007449476" target="_blank" class="floating-icon" title="Contact via WhatsApp">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 2 1.72v3">
+                </path>
+            </svg>
         </a>
     </div>
 
-    <header class="relative pt-28 pb-20 px-6 text-center">
-        <div data-aos="zoom-in" class="mb-10">
-            <!-- REDESIGNED LOGO CONSOLE -->
-            <div class="se-logo-container">
-                <span class="code-bracket">&lt;</span>
-                
-                <div class="typing-text-wrapper">
-                    <span id="typing-content"></span>
-                    <span class="typing-cursor"></span>
-                </div>
-
-                <span class="code-bracket right">/&gt;</span>
-            </div>
+    <!-- Navigation Header -->
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <div class="inline-flex items-center gap-12">
+            <span class="font-mono text-xs text-purple-400 font-bold tracking-widest">&lt;KO /&gt;</span>
         </div>
-        
+        <button onclick="toggleCVModal(true)"
+            class="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:border-purple-500/40 font-medium text-sm transition-all duration-300 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1='16' y1='13' x2='8' y2='13'></line>
+                <line x1='16' y1='17' x2='8' y2='17'></line>
+            </svg>
+            Open Full CV Document
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-16 pb-20 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <div class="cert-badge mb-8" data-aos="fade-down">
-                <span>✨</span> Senior Software Engineer | DevOps
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-8"
+                data-aos="fade-down">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                Senior Software Engineer & Technical Lead
             </div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight text-white tracking-tighter" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight text-white"
+                data-aos="fade-up">
                 Khaled <span class="text-gradient">Omar</span>
             </h1>
-            <p class="text-slate-400 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
-                Architecting high-performance digital commerce solutions. Specialized in scaling enterprise-grade storefronts and engineering seamless full-stack architectures for global markets.
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-10"
+                data-aos="fade-up" data-aos-delay="100">
+                Architecting scalable software ecosystems, high-performance web solutions, and custom automated agency
+                infrastructures across global enterprise markets.
             </p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="150">
+                <a href="https://wa.me/201007449476" target="_blank"
+                    class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold text-sm hover:opacity-90 transition-all shadow-lg shadow-purple-600/20 flex items-center gap-2">
+                    Get In Touch
+                </a>
+                <button onclick="toggleCVModal(true)"
+                    class="px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 font-semibold text-sm transition-all">Review
+                    CV</button>
+            </div>
         </div>
     </header>
 
+    <!-- Main Content Section -->
     <main class="max-w-7xl mx-auto px-6 pb-32">
-        <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
-            <button class="category-tab active" onclick="filterProjects('all', this)">All Projects</button>
-            <button class="category-tab" onclick="filterProjects('shopify', this)">Shopify</button>
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up">
+            <button class="category-tab active" onclick="filterProjects('all', this)">All Platforms</button>
+            <button class="category-tab" onclick="filterProjects('dashboards', this)">Agency Websites</button>
+            <button class="category-tab" onclick="filterProjects('shopify', this)">Shopify Systems</button>
             <button class="category-tab" onclick="filterProjects('zid', this)">Zid Platforms</button>
-            <button class="category-tab" onclick="filterProjects('salla', this)">Salla Stores</button>
-            <button class="category-tab" onclick="filterProjects('wordpress', this)">WordPress / CMS</button>
+            <button class="category-tab" onclick="filterProjects('salla', this)">Salla Ecosystems</button>
+            <button class="category-tab" onclick="filterProjects('wordpress', this)">WordPress Systems</button>
         </div>
 
+        <!-- Portfolio Dynamic Grid -->
         <div id="projectsContainer" class="project-grid">
-            <!-- Dynamic Injection -->
+            <!-- Dynamically injected JavaScript templates -->
         </div>
     </main>
 
-    <footer class="bg-black/60 border-t border-white/5 py-24 px-6 text-center">
-        <div class="mb-12 opacity-90 flex justify-center items-center gap-10">
-            <a href="https://github.com/SunnysApartment" target="_blank" class="text-slate-400 hover:text-white transition-all transform hover:scale-110">
-                <!-- Fixed SVG Path -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            </a>
-            <div class="h-8 w-px bg-white/10"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#logo-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <defs>
-                    <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#8b5cf6" />
-                        <stop offset="100%" stop-color="#d946ef" />
-                    </linearGradient>
-                </defs>
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-            </svg>
-        </div>
-        
-        <h3 class="text-4xl font-black text-white mb-4 tracking-tight">Khaled Omar</h3>
-        
-        <div class="flex flex-col items-center gap-6 mb-16">
-            <p class="text-slate-500 max-w-md mx-auto leading-relaxed">Pioneering digital boundaries through elegant code and performance-driven engineering.</p>
-            <div class="flex flex-wrap justify-center gap-12 text-sm tracking-widest text-violet-400 font-bold uppercase">
-                <a href="https://github.com/SunnysApartment" target="_blank" class="hover:text-fuchsia-400 transition-colors">GitHub</a>
-                <a href="https://wa.me/201007449476" target="_blank" class="hover:text-fuchsia-400 transition-colors">WhatsApp</a>
-                <span class="text-slate-700">Cairo, Egypt</span>
+    <!-- Comprehensive Interactive Full Content CV Modal Overlay -->
+    <div id="cvModal"
+        class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div
+            class="w-full max-w-4xl h-[92vh] bg-[#060412] border border-white/10 rounded-2xl flex flex-col overflow-hidden m-4 shadow-2xl relative">
+
+            <!-- Modal Controls Top Header -->
+            <div class="px-6 py-5 border-b border-white/10 flex justify-between items-center bg-[#0c0922]">
+                <div>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Interactive CV</h3>
+                    <p class="text-xs text-purple-400 font-mono">Khaled Omar — Full Content</p>
+                </div>
+                <button onclick="toggleCVModal(false)"
+                    class="p-2.5 rounded-lg bg-white/5 hover:bg-red-500/20 text-slate-400 hover:text-red-400 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Content Area (Complete Resumé Payload) -->
+            <div class="cv-modal-content overflow-y-auto p-8 md:p-12 space-y-10 text-sm text-slate-300 leading-relaxed">
+
+                <!-- Summary Header -->
+                <div class="border-b border-white/10 pb-8 text-center md:text-left">
+                    <h2 class="text-3xl font-black text-white tracking-tight mb-2">KHALED OMAR</h2>
+                    <h4 class="text-md font-semibold text-purple-400 mb-4">SENIOR SOFTWARE ENGINEER & TECHNICAL LEAD
+                    </h4>
+                    <p class="text-xs text-slate-400 font-mono mb-6">
+                        <a href="https://maps.google.com/?q=Mansoura,+Egypt" target="_blank"
+                            class="hover:text-purple-400 transition-colors">Mansoura, Egypt</a> |
+                        <a href="tel:+201007449476" class="hover:text-purple-400 transition-colors">+201007449476</a> |
+                        <a href="mailto:khaled.omar.1995@gmail.com"
+                            class="hover:text-purple-400 transition-colors">khaled.omar.1995@gmail.com</a> |
+                        <a href="https://github.com/SunnysApartment" target="_blank"
+                            class="hover:text-purple-400 transition-colors">github.com</a> |
+                        <a href="https://linkedin.com" target="_blank"
+                            class="hover:text-purple-400 transition-colors">linkedin.com</a>
+                    </p>
+                    <p class="text-slate-400 text-justify">
+                        Performance-driven Senior Software Engineer and Technical Lead with a proven track record of
+                        architecting, building, and scaling high-impact digital solutions. Expert in full-stack
+                        engineering and multi-platform e-commerce ecosystems, utilizing C#, .NET Core, Next.js,
+                        TypeScript, and modern CMS architectures. Experienced in driving operational engineering
+                        leadership, transitioning technical workflows, and optimizing platform metrics like technical
+                        SEO and Core Web Vitals. Combines precise systems architectural execution with strategic
+                        cross-functional management to deliver measurable business impact across enterprise and digital
+                        agency systems.
+                    </p>
+                </div>
+
+                <!-- Core Competencies Grid -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-4">CORE COMPETENCIES</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-400">
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• Software Engineering Full Stack
+                            Development</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• Technical Leadership &
+                            Architecture</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• Backend Systems & APIs</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• Cloud Infrastructure & DevOps
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• SEO & Core Web Vitals</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• Automation Workflows</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• UI/UX Engineering</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• General Management</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5">• E-Commerce Ecosystems</div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-4">TECHNICAL SKILLS</h4>
+                    <div class="space-y-2.5 text-xs">
+                        <p><strong class="text-slate-200">Languages:</strong> C#, PHP, JavaScript, TypeScript, HTML5,
+                            CSS3, SQL</p>
+                        <p><strong class="text-slate-200">Frameworks:</strong> .NET Core, ASP.NET Core, Next.js, React,
+                            Tailwind CSS, WPF, WinForms</p>
+                        <p><strong class="text-slate-200">E-Commerce & CMS:</strong> Salla, Shopify, WordPress,
+                            WooCommerce, Zid</p>
+                        <p><strong class="text-slate-200">Databases & Cloud:</strong> Supabase, PostgreSQL, Microsoft
+                            SQL Server, Google Cloud Platform (GCP)</p>
+                        <p><strong class="text-slate-200">DevOps & Infra:</strong> Docker, Kubernetes, Git, GitHub,
+                            Server Orchestration, DDoS Protection</p>
+                        <p><strong class="text-slate-200">Tools & Utilities:</strong> Figma, Sitebulb, Crawl Maps,
+                            PageSpeed Insights, ClickUp, Trello, OpenRouter, Google AI Studio</p>
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="space-y-6">
+                    <h4
+                        class="text-xs uppercase tracking-widest text-purple-400 font-bold border-b border-white/5 pb-2">
+                        PROFESSIONAL EXPERIENCE</h4>
+
+                    <!-- Ghain -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center mb-1">
+                            <h5 class="font-bold text-white text-base">Full Stack Developer & Technical Lead</h5>
+                            <span class="text-xs text-purple-400 font-mono">May 2026 – Present</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Ghain (Digital Agency) — Mansoura, Egypt</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-400 text-xs">
+                            <li>Developed fluid, high-performance web applications, robust APIs, and interactive client
+                                presentation layers using modern multi-tier tools and full-stack architecture paradigms.
+                            </li>
+                            <li>Implemented structural briefs and end-to-end operational workflows within an
+                                enterprise-oriented, multi-tenant digital blueprint.</li>
+                            <li>Collaborated tightly with architectural and visual design pipelines to translate custom
+                                data objects and high-fidelity layouts into modular, production-ready modules.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Richline -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center mb-1">
+                            <h5 class="font-bold text-white text-base">Full Stack Developer, Technical Lead & General
+                                Manager</h5>
+                            <span class="text-xs text-purple-400 font-mono">Sep 2025 – Jul 2026</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Richline — Mansoura, Egypt</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-400 text-xs">
+                            <li>General Management: Assumed operational responsibility for business-wide execution
+                                pipelines, standardizing delivery structures, and leading strategic scaling objectives.
+                            </li>
+                            <li>Technical Leadership: Headed the core software development unit, orchestrating
+                                architecture design sessions and reviewing full-stack systems implementations.</li>
+                            <li>Full Stack Engineering: Built, expanded, and maintained integrated platforms using
+                                multi-tier stacks, enhancing code reusability and platform performance metrics.</li>
+                            <li>Business Transformation: Spearheaded the development of structural roadmaps to support
+                                high-growth agency pipelines, facilitating rapid onboarding for Gulf-based enterprise
+                                accounts.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kelma.io -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center mb-1">
+                            <h5 class="font-bold text-white text-base">Co-Founder & Technical Support Lead</h5>
+                            <span class="text-xs text-purple-400 font-mono">Sep 2024 – May 2025</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Kelma.io — Remote</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-400 text-xs">
+                            <li>Engineered and maintained resilient hosting infrastructure, guaranteeing
+                                high-availability server uptime and optimized processing performance.</li>
+                            <li>Implemented security protocols, deploying industry-standard backups and comprehensive
+                                DDoS protection strategies to safeguard infrastructure integrity.</li>
+                            <li>Automated server support workflows, directly increasing system service reliability and
+                                optimizing underlying server resource allocations.</li>
+                            <li>Led a technical support engineering team, creating optimized escalation structures that
+                                drastically reduced technical response times and customer issue lifecycles.</li>
+                            <li>Defined growth strategies and established key partnerships that successfully expanded
+                                international hosting service offerings.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Daad -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center mb-1">
+                            <h5 class="font-bold text-white text-base">Front-End Developer & Help Desk Engineer</h5>
+                            <span class="text-xs text-purple-400 font-mono">Nov 2024 – Feb 2026</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Daad Agency — Mansoura, Egypt</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-400 text-xs">
+                            <li>Developed and optimized premium UI/UX pages for high-conversion e-commerce storefronts
+                                across major platforms including Salla, Zid, Shopify, and WooCommerce.</li>
+                            <li>Converted high-fidelity Figma designs into clean, semantic, and highly maintainable web
+                                pages utilizing optimized HTML, CSS, and clean-code JavaScript.</li>
+                            <li>Executed advanced optimization audits leveraging Chrome DevTools, Lighthouse, and
+                                performance profilers to troubleshoot and boost Core Web Vitals across active client
+                                storefronts.</li>
+                            <li>Conducted comprehensive technical SEO audits, building structural Crawl Maps and
+                                executing speed optimizations via Sitebulb to maximize organic search engine visibility.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- El Sewedy -->
+                    <div>
+                        <div class="flex flex-wrap justify-between items-center mb-1">
+                            <h5 class="font-bold text-white text-base">Software Engineer Intern</h5>
+                            <span class="text-xs text-purple-400 font-mono">Jun 2024 – Aug 2024</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">El Sewedy Electric — Cairo, Egypt</p>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-400 text-xs">
+                            <li>Developed and maintained enterprise-grade applications utilizing C# and .NET Core within
+                                a feature-oriented development environment.</li>
+                            <li>Built and optimized RESTful APIs using ASP.NET Core, integrating enterprise applications
+                                seamlessly into internal ERP infrastructure.</li>
+                            <li>Assisted in industrial automation projects, designing software bridges that successfully
+                                integrated digital platforms with manufacturing execution systems.</li>
+                            <li>Developed internal utility desktop applications using WPF and WinForms to streamline
+                                internal technical operations.</li>
+                            <li>Explored containerization and container orchestration topologies, deploying
+                                microservices using Docker and Kubernetes to validate modern cloud architectures.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Major Projects -->
+                <div class="space-y-4">
+                    <h4
+                        class="text-xs uppercase tracking-widest text-purple-400 font-bold border-b border-white/5 pb-2">
+                        MAJOR PROJECTS</h4>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <h5 class="font-bold text-white">Scalable Enterprise CRM System</h5>
+                            <p class="text-slate-400"><strong class="text-slate-300">Overview & Impact:</strong>
+                                Designed and built a production-ready, highly scalable Customer Relationship Management
+                                (CRM) platform tailored for modern digital agency operational workflows. Delivered an
+                                infrastructure-ready system optimized for Docker deployment and GCP hosting.</p>
+                            <p class="text-purple-400 mt-1"><strong class="text-slate-300">Technologies:</strong> C#,
+                                .NET Core, ASP.NET Core, Docker, Google Cloud Platform (GCP)</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white">Behavior Tracker Pro (macOS)</h5>
+                            <p class="text-slate-400"><strong class="text-slate-300">Overview & Impact:</strong>
+                                Engineered an executive behavioral log tracking application optimized for high-precision
+                                scientific environment logging and metrics export. Successfully achieved a
+                                millisecond-accurate tracking and logging architecture.</p>
+                            <p class="text-purple-400 mt-1"><strong class="text-slate-300">Technologies:</strong> Swift,
+                                SwiftData, macOS Media Engine</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white">Interactive Bento Grid Builder & Visual Theme Simulator
+                            </h5>
+                            <p class="text-slate-400"><strong class="text-slate-300">Overview & Impact:</strong> Built
+                                an advanced UI visualization layout system specifically tailored for the Salla
+                                e-commerce platform ecosystem. Provided non-technical store merchants with the ability
+                                to instantly construct premium layouts.</p>
+                            <p class="text-purple-400 mt-1"><strong class="text-slate-300">Technologies:</strong> HTML5,
+                                CSS3, JavaScript (ES6+), Salla Theme API</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white">Nacita Autocare Vehicle Fitment Filter Architecture</h5>
+                            <p class="text-slate-400"><strong class="text-slate-300">Overview & Impact:</strong>
+                                Directed a comprehensive technical overhaul to design and deploy a complex automotive
+                                fitment compatibility filter. Engineered a robust Year/Make/Model lookup engine,
+                                improving customer filtering precision.</p>
+                            <p class="text-purple-400 mt-1"><strong class="text-slate-300">Technologies:</strong>
+                                Shopify Metaobjects, Liquid, JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/5 pt-6 text-xs">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3">EDUCATION</h4>
+                        <p class="font-bold text-white">Bachelor of Management Information Systems (MIS)</p>
+                        <p class="text-slate-400">Delta University | 2014 - 2018</p>
+                        <p class="text-purple-400 font-medium mt-1">Graduated with Excellent Degree (Highest Honors)</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest text-purple-400 font-bold mb-3">CERTIFICATIONS &
+                            LANGUAGES</h4>
+                        <ul class="space-y-1 text-slate-400">
+                            <li>• Technical SEO Advanced Certification - Bastian Grimm (84-Hour Deep Dive)</li>
+                            <li>• Google IT Support Professional Certificate - Google / Coursera</li>
+                            <li>• CCNA (Cisco Certified Network Associate) - Routing & Switching</li>
+                            <li>• WordPress 101 Professional Certification (80-Hour Professional Track)</li>
+                        </ul>
+                        <p class="mt-3 text-slate-300"><strong class="text-purple-400">Languages:</strong> Arabic
+                            (Native) | English (Professional - IELTS Band 7)</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-        
-        <div class="text-[10px] text-slate-800 font-bold uppercase tracking-[0.3em]">© 2026 Khaled Omar — Licensed under MIT</div>
+    </div>
+
+    <!-- Footer Area -->
+    <footer class="bg-black/40 border-t border-white/5 py-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-6">
+            <h3 class="text-2xl font-bold text-white">Khaled Omar</h3>
+            <p class="text-slate-500 text-sm max-w-md">Pioneering edge infrastructures through semantic clean
+                architectures and objective performance validation workflows.</p>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-slate-400 font-medium tracking-wider">
+                <a href="https://github.com/SunnysApartment" target="_blank"
+                    class="hover:text-purple-400 transition-colors">GitHub</a>
+                <a href="https://wa.me/201007449476" target="_blank"
+                    class="hover:text-purple-400 transition-colors">WhatsApp</a>
+                <button onclick="toggleCVModal(true)" class="hover:text-purple-400 transition-colors">Interactive
+                    CV</button>
+                <span class="text-slate-600">Mansoura, Egypt</span>
+            </div>
+            <div class="text-[10px] text-slate-700 font-bold uppercase tracking-widest mt-4">© 2026 Khaled Omar — MIT
+                License Architecture</div>
+        </div>
     </footer>
 
+    <!-- Scripts Section -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         const projects = [
-            // E-commerce & Platforms
-            { title: "Atiab International", url: "https://atiabintl.com/ar-eg/", cat: "zid" },
-            { title: "Zenith Store", url: "https://zenithstore.zid.store/", cat: "zid" },
-            { title: "Mkahel", url: "https://mkahel.sa/", cat: "zid" },
-            { title: "Everyday KSA", url: "https://everydayksa.com/", cat: "zid" },
-            { title: "Ommniah", url: "https://ommniah.com/", cat: "zid" },
-            { title: "Ivory Uniform", url: "https://ivoryuniformsa.com/", cat: "salla" },
-            { title: "Tora SA", url: "https://tora-sa.com/", cat: "salla" },
-            { title: "Kohl Alward", url: "https://kohlalward.com/ar", cat: "salla" },
-            { title: "Captain Majid", url: "https://captainmajidc.com/ar", cat: "salla" },
-            { title: "Dooja Shop", url: "https://doojashop.com/", cat: "salla" },
-            { title: "Antika Store", url: "https://antika-store.com/", cat: "salla" },
-            { title: "Fnon Wten", url: "http://fnonwten.com/", cat: "salla" },
-            { title: "Glow Me", url: "https://gloowme.com/ar", cat: "salla" },
-            { title: "Tulasa", url: "https://6ulasa.com/", cat: "salla" },
-            { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify" },
+            // Custom Agency Dashboards & Full Themes
+            { title: "Richline Agency", url: "https://sunnysapartment.github.io/Richline-UI/", cat: "dashboards", tags: ["Agency Executive Dashboard", "Custom UI Stack"] },
+            { title: "Gheen Agency", url: "https://gheenagency.github.io/GheenUI/", cat: "dashboards", tags: ["Subscription Engine UI", "Client Portal Interface"] },
+            { title: "Tryaq Agency", url: "https://gheenagency.github.io/TryaQ-UI/", cat: "dashboards", tags: ["Custom Management Platform", "Data Simulation Visualizer"] },
+            { title: "Nefal", url: "https://gheenagency.github.io/Nefal-Prototype/", cat: "dashboards", tags: ["WordPress Full Custom Theme", "Prototype Framework"] },
 
-            // WordPress CMS
-            { title: "Abdulaziz Tubbal", url: "https://abdulaziztubbal.com/", cat: "wordpress" },
-            { title: "Al-Bansar PS", url: "https://albansar-ps.com/", cat: "wordpress" },
-            { title: "Sina Plus", url: "https://sina-plus.com/hhs-a1/", cat: "wordpress" },
-            { title: "Al-Harameen", url: "https://al-harameen.ae/", cat: "wordpress" },
-            { title: "Rich Line", url: "https://richline.sa/", cat: "wordpress" },
-            { title: "Rich Liine", url: "https://richliine.com/", cat: "wordpress" },
-            { title: "Madhon Ruh", url: "https://madhonruh.com/", cat: "wordpress" },
-            { title: "Bayrak Al-Maadin", url: "https://bayrakalmaadin.com/", cat: "wordpress" },
-            { title: "Al-Fakhr Wash", url: "https://alfakhr-wash.com/", cat: "wordpress" },
-            { title: "Aman Portal", url: "https://portal.aman-sa.com/", cat: "wordpress" },
-            { title: "El-Huda Real Estate", url: "https://elhuda-realestate.com/", cat: "wordpress" },
-            { title: "Protak Metal", url: "https://protakmetaleg.com/", cat: "wordpress" },
-            { title: "Refd Services", url: "https://www.refdservices.com/", cat: "wordpress" },
-            { title: "Beyond Creativity", url: "https://beyondcreativity.sa/", cat: "wordpress" },
-            { title: "Warfah Association", url: "https://warfah.org/", cat: "wordpress" },
-            { title: "Sky Color", url: "https://skycolorksa.com/", cat: "wordpress" },
-            { title: "Velvaya Store", url: "https://velvayastor.com/", cat: "wordpress" },
-            { title: "Partners & Beyond", url: "https://partnersandbeyond.com/", cat: "wordpress" }
+            // E-Commerce Platforms (Zid, Salla, Shopify)
+            { title: "Atiab International", url: "https://atiabintl.com/ar-eg/", cat: "zid", tags: ["Zid Store", "E-Commerce Optimization"] },
+            { title: "Zenith Store", url: "https://zenithstore.zid.store/", cat: "zid", tags: ["Zid Cloud", "UI Conversion Optimization"] },
+            { title: "Mkahel", url: "https://mkahel.sa/", cat: "zid", tags: ["Custom Assets", "Performance Audit"] },
+            { title: "Everyday KSA", url: "https://everydayksa.com/", cat: "zid", tags: ["Platform Migration", "UX Audit"] },
+            { title: "Ommniah", url: "https://ommniah.com/", cat: "zid", tags: ["E-Commerce Architecture", "SEO Audit"] },
+            { title: "Ivory Uniform", url: "https://ivoryuniformsa.com/", cat: "salla", tags: ["Salla Hub", "Custom Styling Elements"] },
+            { title: "Tora SA", url: "https://tora-sa.com/", cat: "salla", tags: ["Storefront Scaling", "Core Web Vitals"] },
+            { title: "Kohl Alward", url: "https://kohlalward.com/ar", cat: "salla", tags: ["Interactive Layout", "Asset Optimization"] },
+            { title: "Captain Majid", url: "https://captainmajidc.com/ar", cat: "salla", tags: ["Salla Hub Engine", "High Traffic Node"] },
+            { title: "Dooja Shop", url: "https://doojashop.com/", cat: "salla", tags: ["Merchant Platform Integration", "UI Upgrade"] },
+            { title: "Antika Store", url: "https://antika-store.com/", cat: "salla", tags: ["Custom Component Hooks", "Performance Optimization"] },
+            { title: "Fnon Wten", url: "http://fnonwten.com/", cat: "salla", tags: ["Responsive Architecture", "E-Commerce"] },
+            { title: "Glow Me", url: "https://gloowme.com/ar", cat: "salla", tags: ["Asset Pipeline", "Technical SEO Auditing"] },
+            { title: "Tulasa", url: "https://6ulasa.com/", cat: "salla", tags: ["Custom Salla Implementation", "UX Redesign"] },
+            { title: "The Bloom Bottle", url: "https://www.thebloombottle.com/", cat: "shopify", tags: ["Shopify Liquid Engine", "Metaobjects Data Layer"] },
+
+            // WordPress Enterprise Projects
+            { title: "Abdulaziz Tubbal", url: "https://abdulaziztubbal.com/", cat: "wordpress", tags: ["WordPress Architecture", "Tailwind Integration"] },
+            { title: "Al-Bansar PS", url: "https://albansar-ps.com/", cat: "wordpress", tags: ["Custom CMS Development", "Secure Backend Pipeline"] },
+            { title: "Sina Plus", url: "https://sina-plus.com/hhs-a1/", cat: "wordpress", tags: ["CMS Optimization Framework", "Core Optimization"] },
+            { title: "Al-Harameen", url: "https://al-harameen.ae/", cat: "wordpress", tags: ["Custom Content Types", "Global Access Pipeline"] },
+            { title: "Richline", url: "https://richline.sa/", cat: "wordpress", tags: ["Agency Portfolio Infrastructure", "Premium Layout System"] },
+            { title: "Qanoni", url: "https://richliine.com/", cat: "wordpress", tags: ["Multi-site Cluster", "SEO Mapping"] },
+            { title: "Madhon Ruh", url: "https://madhonruh.com/", cat: "wordpress", tags: ["Custom Theme Implementation", "Asset Minification"] },
+            { title: "Bayrak Al-Maadin", url: "https://bayrakalmaadin.com/", cat: "wordpress", tags: ["Corporate Base Architecture", "Secure Uptime"] },
+            { title: "Al-Fakhr Wash", url: "https://alfakhr-wash.com/", cat: "wordpress", tags: ["Local Services CMS", "Custom Form Flow"] },
+            { title: "Aman Portal", url: "https://portal.aman-sa.com/", cat: "wordpress", tags: ["Secure Portal Node", "Role Management Integration"] },
+            { title: "El-Huda Real Estate", url: "https://elhuda-realestate.com/", cat: "wordpress", tags: ["Property Data Objects", "Query Optimization"] },
+            { title: "Protak Metal", url: "https://protakmetaleg.com/", cat: "wordpress", tags: ["Industrial Platform Layout", "Responsive Block Layers"] },
+            { title: "Refd Services Group", url: "https://www.refdservices.com/", cat: "wordpress", tags: ["Enterprise CMS Theme", "Corporate Blueprint"] },
+            { title: "Beyond Creativity", url: "https://beyondcreativity.sa/", cat: "wordpress", tags: ["Custom Visual Modules", "Technical Speed Audit"] },
+            { title: "Warfah Association", url: "https://warfah.org/", cat: "wordpress", tags: ["Non-Profit System Infrastructure", "Secure Donation API"] },
+            { title: "Sky Color", url: "https://skycolorksa.com/", cat: "wordpress", tags: ["Custom Theme Elements", "Crawl Map Refactoring"] },
+            { title: "Velvaya Storefront", url: "https://velvayastor.com/", cat: "wordpress", tags: ["WooCommerce Layer Integration", "Conversion Optimization"] },
+            { title: "Partners & Beyond", url: "https://partnersandbeyond.com/", cat: "wordpress", tags: ["Consultancy CMS System", "SEO Performance Alignment"] }
         ];
 
         function renderProjects() {
@@ -405,99 +630,74 @@
             if (!container) return;
 
             container.innerHTML = projects.map((p, index) => {
-                const imgSrc = `https://image.thum.io/get/width/600/crop/650/noanimate/${p.url}`;
-                
                 return `
-                <div class="project-item glass-card" data-category="${p.cat}" data-aos="fade-up" data-aos-delay="${(index % 4) * 100}">
-                    <div class="screenshot-container">
-                        <img src="${imgSrc}" 
-                             alt="${p.title}" 
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/05060f/8b5cf6?text=Preview+Unavailable';">
-                        <div class="absolute top-5 right-5">
-                            <span class="px-3 py-1 bg-black/80 backdrop-blur-lg text-violet-400 text-[10px] rounded-full border border-violet-500/20 uppercase font-black tracking-widest">${p.cat}</span>
+                <div class="project-item glass-card card-glow-bg p-6 flex flex-col justify-between" data-category="${p.cat}" data-aos="fade-up" data-aos-delay="${(index % 3) * 30}">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-white/5 border border-white/10 text-slate-400 text-[10px] font-mono rounded-md uppercase tracking-wider">${p.cat === 'dashboards' ? 'Dashboard / Full Theme' : p.cat}</span>
+                            <span class="text-xs text-emerald-400 flex items-center gap-1.5 font-medium">
+                                <span class="status-dot"></span> Active Node
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 tracking-tight">${p.title}</h4>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            ${p.tags.map(t => `<span class="text-[11px] text-slate-500 bg-white/[0.02] px-2 py-0.5 rounded">${t}</span>`).join('')}
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold text-white mb-6 line-clamp-1">${p.title}</h4>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center text-slate-500 text-[10px] font-black uppercase tracking-widest">
-                                Site Status: <span class="ml-2 text-white flex items-center"> <span class="status-dot"></span> LIVE</span>
-                            </div>
-                            <a href="${p.url}" target="_blank" class="view-project-btn group">
-                                Explore Project 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
+                    <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <a href="${p.url}" target="_blank" class="text-xs font-semibold text-purple-400 hover:text-fuchsia-400 transition-colors inline-flex items-center gap-1 group">
+                            Explore Active Deployment
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-0.5 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
                     </div>
                 </div>
                 `;
             }).join('');
+
+            // Track mouse moving relative to card bounds for dynamic shine layouts
+            document.querySelectorAll('.card-glow-bg').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                });
+            });
         }
 
         function filterProjects(category, btn) {
             document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const items = document.querySelectorAll('.project-item');
-            items.forEach(item => {
+            document.querySelectorAll('.project-item').forEach(item => {
                 const itemCat = item.getAttribute('data-category');
                 if (category === 'all' || itemCat === category) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
+                    item.style.display = 'flex';
+                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
                 } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                    item.style.opacity = '0'; item.style.transform = 'scale(0.98)';
+                    setTimeout(() => { item.style.display = 'none'; }, 200);
                 }
             });
         }
 
-        // Typing Effect Logic
-        const words = ["CODE", "DEV", "BUILD", "API", "WEB", "APPS", "SEO", "UI"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 150;
-        const deletingSpeed = 100;
-        const pauseTime = 2000;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            const typingContent = document.getElementById('typing-content');
-            
-            if (isDeleting) {
-                typingContent.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
+        function toggleCVModal(show) {
+            const modal = document.getElementById('cvModal');
+            if (show) {
+                modal.classList.remove('pointer-events-none', 'opacity-0');
+                document.body.style.overflow = 'hidden';
             } else {
-                typingContent.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(type, pauseTime);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+                modal.classList.add('pointer-events-none', 'opacity-0');
+                document.body.style.overflow = '';
             }
         }
 
         window.onload = () => {
             renderProjects();
             if (typeof AOS !== 'undefined') {
-                AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+                AOS.init({ duration: 500, easing: 'ease-out', once: true });
             }
-            type(); // Start typing animation
         };
     </script>
 </body>
+
 </html>
