@@ -1025,8 +1025,6 @@
         }
         .field input:user-invalid, .field textarea:user-invalid { border-color: var(--crit); }
 
-        .hp { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
-
         .captcha-row { margin-top: 1rem; max-width: 100%; }
         .captcha-row > span {
             display: block; margin-bottom: 0.4rem;
@@ -1403,15 +1401,15 @@
                                                         </label>
                                                     </div>
 
-                                                    <label class="hp" aria-hidden="true" tabindex="-1">
-                                                        Leave this empty
-                                                        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
-                                                    </label>
-
                                                     <div class="captcha-row">
                                                         <span>Verification</span>
                                                         <div class="captcha-box">
+                                                            <!-- data-sitekey is Web3Forms' shared hCaptcha key. If you enabled
+                                                                 hCaptcha with YOUR OWN sitekey in the Web3Forms
+                                                                 dashboard, replace it with that key or the token
+                                                                 will fail server-side verification. -->
                                                             <div class="h-captcha" data-captcha="true" data-theme="dark"
+                                                                 data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
                                                                  data-error-callback="emergnCaptchaError"
                                                                  data-expired-callback="emergnCaptchaExpired"></div>
                                                         </div>
@@ -1721,9 +1719,6 @@
                 form.addEventListener('submit', function (ev) {
                     ev.preventDefault();
 
-                    /* honeypot — a real person never ticks a field they cannot see */
-                    if (form.elements.botcheck && form.elements.botcheck.checked) return;
-
                     if (!form.checkValidity()) {
                         form.reportValidity();
                         say('Some fields still need filling in.', 'error');
@@ -1773,6 +1768,7 @@
                             from_name: 'Emergn Feels site',
                             name: v.name,
                             email: v.email,
+                            replyto: v.email,
                             company: v.company || '—',
                             topic: v.topic,
                             message: v.message,
