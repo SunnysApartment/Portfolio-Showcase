@@ -178,6 +178,38 @@
             }
         }
 
+        .flagship {
+            border-color: rgba(124, 58, 237, 0.25);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.07), rgba(217, 70, 239, 0.03));
+        }
+
+        .flagship:hover {
+            border-color: rgba(217, 70, 239, 0.45);
+            box-shadow: 0 40px 80px -20px rgba(124, 58, 237, 0.3);
+        }
+
+        .flagship-orb svg {
+            width: clamp(140px, 30vw, 200px);
+            height: auto;
+        }
+
+        .orb-spin {
+            animation: orb-spin linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .orb-spin-rev {
+            animation: orb-spin-rev linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        @keyframes orb-spin { to { transform: rotate(360deg); } }
+        @keyframes orb-spin-rev { to { transform: rotate(-360deg); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .orb-spin, .orb-spin-rev { animation: none; }
+        }
+
         .cv-modal-content::-webkit-scrollbar {
             width: 8px;
         }
@@ -268,6 +300,66 @@
 
     <!-- Main Content Section -->
     <main class="max-w-7xl mx-auto px-6 pb-32">
+
+        <!-- Flagship Project — Emergn Feels -->
+        <a href="emergn-feels.html" class="flagship glass-card card-glow-bg block mb-16 p-8 md:p-10 no-underline"
+            data-aos="fade-up">
+            <div class="flex flex-col lg:flex-row lg:items-center gap-8">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="status-dot"></span>
+                        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-400 font-bold">Flagship
+                            Project</span>
+                        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-600">Multi-year
+                            build</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+                        Emergn Feels <span class="text-gradient">— The System</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mb-6">
+                        A complete technology ecosystem built over years: ORBIT, the flagship business management
+                        platform, a connected CRM, ERP and HR suite, big data analytics, market intelligence, and
+                        cybersecurity — architected, engineered, and shipped as one system.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mb-7">
+                        <span class="text-[11px] text-slate-400 bg-white/[0.04] border border-white/5 px-2.5 py-1 rounded">ORBIT Platform</span>
+                        <span class="text-[11px] text-slate-400 bg-white/[0.04] border border-white/5 px-2.5 py-1 rounded">CRM &middot; ERP &middot; HR</span>
+                        <span class="text-[11px] text-slate-400 bg-white/[0.04] border border-white/5 px-2.5 py-1 rounded">Big Data &amp; Analytics</span>
+                        <span class="text-[11px] text-slate-400 bg-white/[0.04] border border-white/5 px-2.5 py-1 rounded">Market Intelligence</span>
+                        <span class="text-[11px] text-slate-400 bg-white/[0.04] border border-white/5 px-2.5 py-1 rounded">Cybersecurity</span>
+                    </div>
+                    <span
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold text-sm shadow-lg shadow-purple-600/20 text-white">
+                        Enter the System
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="flagship-orb flex-none self-center" aria-hidden="true">
+                    <svg viewBox="0 0 200 200" width="200" height="200">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.07)"></circle>
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(167,139,250,0.16)"
+                            stroke-dasharray="2 7"></circle>
+                        <circle cx="100" cy="100" r="48" fill="none" stroke="rgba(255,255,255,0.07)"></circle>
+                        <g class="orb-spin" style="animation-duration:26s">
+                            <circle cx="190" cy="100" r="4" fill="#a78bfa"></circle>
+                            <circle cx="100" cy="30" r="3" fill="#f472b6"></circle>
+                        </g>
+                        <g class="orb-spin-rev" style="animation-duration:19s">
+                            <circle cx="148" cy="100" r="3" fill="#c084fc"></circle>
+                        </g>
+                        <circle cx="100" cy="100" r="26" fill="rgba(10,5,38,0.9)" stroke="rgba(167,139,250,0.4)"></circle>
+                        <text x="100" y="104" text-anchor="middle" fill="#a78bfa"
+                            style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:0.14em">ORBIT</text>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
         <!-- Filter Tabs -->
         <div class="flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up">
             <button class="category-tab active" onclick="filterProjects('all', this)">All Platforms</button>
