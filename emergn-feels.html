@@ -1027,6 +1027,19 @@
 
         .hp { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
 
+        .captcha-row { margin-top: 1rem; max-width: 100%; }
+        .captcha-row > span {
+            display: block; margin-bottom: 0.4rem;
+            font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+        }
+        /* the widget is a fixed 303px iframe; scale it to fit narrow panels */
+        .captcha-box { min-height: 86px; }
+        @media (max-width: 460px) {
+            .captcha-box { min-height: 74px; }
+            .captcha-box .h-captcha { transform: scale(0.84); transform-origin: 0 0; }
+        }
+
         .form-foot {
             display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
             margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
@@ -1395,6 +1408,13 @@
                                                         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
                                                     </label>
 
+                                                    <div class="captcha-row">
+                                                        <span>Verification</span>
+                                                        <div class="captcha-box">
+                                                            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="form-foot">
                                                         <button class="btn btn-primary" type="submit" id="sendBtn">Send transmission</button>
                                                         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
@@ -1447,6 +1467,9 @@
             </div>
         </footer>
     </main>
+
+    <!-- Web3Forms client script — renders the hCaptcha widget marked data-captcha -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 
     <script>
         (function () {
@@ -1687,11 +1710,27 @@
 
                     var v = values();
 
-                    /* No endpoint configured yet — hand the message to WhatsApp
+                    /* No endpoint configured — hand the message to WhatsApp
                        rather than pretending it was delivered. */
                     if (!FORM_ACCESS_KEY) {
                         window.open(whatsappUrl(v), '_blank', 'noopener');
                         say('Opened WhatsApp with your message ready to send.');
+                        return;
+                    }
+
+                    /* hCaptcha. The widget injects textarea[name=h-captcha-response]
+                       into the form once it has rendered. If that field is missing
+                       the widget never loaded — do not strand the visitor behind a
+                       control that is not there; hand off to WhatsApp instead. */
+                    var captchaField = form.querySelector('textarea[name="h-captcha-response"]');
+                    if (!captchaField) {
+                        window.open(whatsappUrl(v), '_blank', 'noopener');
+                        say('Verification could not load. Opened WhatsApp with your message instead.');
+                        return;
+                    }
+                    var captchaToken = captchaField.value;
+                    if (!captchaToken) {
+                        say('Complete the verification above to send.', 'error');
                         return;
                     }
 
@@ -1709,7 +1748,8 @@
                             email: v.email,
                             company: v.company || '—',
                             topic: v.topic,
-                            message: v.message
+                            message: v.message,
+                            'h-captcha-response': captchaToken
                         })
                     })
                         .then(function (r) { return r.json().catch(function () { return { success: r.ok }; }); })
@@ -1722,7 +1762,11 @@
                         })
                         .catch(function () {
                             sendBtn.disabled = false;
-                            say('That did not send. Try again, or reach us on WhatsApp.', 'error');
+                            /* the token is spent — reset so the retry gets a fresh one */
+                            if (window.hcaptcha && typeof window.hcaptcha.reset === 'function') {
+                                try { window.hcaptcha.reset(); } catch (e) { /* widget already gone */ }
+                            }
+                            say('That did not send. Verify again and retry, or reach us on WhatsApp.', 'error');
                             var a = document.createElement('a');
                             a.href = whatsappUrl(v);
                             a.target = '_blank'; a.rel = 'noopener noreferrer';
