@@ -1411,7 +1411,9 @@
                                                     <div class="captcha-row">
                                                         <span>Verification</span>
                                                         <div class="captcha-box">
-                                                            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+                                                            <div class="h-captcha" data-captcha="true" data-theme="dark"
+                                                                 data-error-callback="emergnCaptchaError"
+                                                                 data-expired-callback="emergnCaptchaExpired"></div>
                                                         </div>
                                                     </div>
 
@@ -1467,6 +1469,13 @@
             </div>
         </footer>
     </main>
+
+    <!-- hCaptcha callbacks must exist before the widget renders, so they are
+         declared here and delegate to the handler installed further down. -->
+    <script>
+        window.emergnCaptchaError = function () { if (window.__emergnCaptcha) window.__emergnCaptcha.error(); };
+        window.emergnCaptchaExpired = function () { if (window.__emergnCaptcha) window.__emergnCaptcha.expired(); };
+    </script>
 
     <!-- Web3Forms client script — renders the hCaptcha widget marked data-captcha -->
     <script src="https://web3forms.com/client/script.js" async defer></script>
@@ -1662,6 +1671,19 @@
             var form = document.getElementById('contactForm');
             if (form) {
                 var statusEl = document.getElementById('formStatus');
+                var captchaBroken = false;
+
+                /* hCaptcha reports trouble here. The commonest cause is the page
+                   being opened over file:// — it needs a real http(s) origin. */
+                window.__emergnCaptcha = {
+                    error: function () {
+                        captchaBroken = true;
+                        say('Verification is unavailable. You can still reach us on WhatsApp.', 'error');
+                    },
+                    expired: function () {
+                        say('Verification expired — tick the box again before sending.', 'error');
+                    }
+                };
                 var sendBtn = document.getElementById('sendBtn');
                 var livePanel = document.getElementById('formLive');
                 var sentPanel = document.getElementById('formSent');
@@ -1730,6 +1752,11 @@
                     }
                     var captchaToken = captchaField.value;
                     if (!captchaToken) {
+                        if (captchaBroken) {
+                            window.open(whatsappUrl(v), '_blank', 'noopener');
+                            say('Verification is unavailable. Opened WhatsApp with your message instead.');
+                            return;
+                        }
                         say('Complete the verification above to send.', 'error');
                         return;
                     }
