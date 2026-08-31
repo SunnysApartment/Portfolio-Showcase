@@ -678,6 +678,10 @@
                     setTimeout(() => { item.style.display = 'none'; }, 200);
                 }
             });
+
+            // Grid reflows without a scroll event, so AOS never reveals the newly
+            // visible cards. Refresh after the 200ms hide settles the layout.
+            if (typeof AOS !== 'undefined') setTimeout(() => AOS.refresh(), 250);
         }
 
         function toggleCVModal(show) {
