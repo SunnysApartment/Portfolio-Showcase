@@ -1453,16 +1453,20 @@
             'use strict';
 
             /* ==============================================================
-               CONFIGURE ME
+               CONFIGURATION
                --------------------------------------------------------------
-               FORM_ACCESS_KEY: get a free key at https://web3forms.com —
-               enter the address you want submissions delivered to and they
-               email you the key. Paste it between the quotes below.
+               FORM_ACCESS_KEY is the Web3Forms key for
+               khaled@sunnysapartment.com — submissions are delivered there.
+               Manage or rotate it at https://web3forms.com
 
-               While it is empty the form still works: submitting opens
-               WhatsApp with the message pre-filled, so nothing is ever lost.
+               This key is a public submission token by design and is visible
+               in the page source; it grants nothing but the ability to send
+               to that address. If it ever attracts spam, rotate it here.
+
+               If the key is blanked, or a send fails, the form hands the
+               message to WhatsApp pre-filled rather than losing it.
                ============================================================== */
-            var FORM_ACCESS_KEY = '';
+            var FORM_ACCESS_KEY = 'c4271609-1c36-4b8c-9cce-d72b98b6cdc5';
             var WHATSAPP_NUMBER = '201007449476';
 
             var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
